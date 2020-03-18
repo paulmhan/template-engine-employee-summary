@@ -243,3 +243,5 @@ function appMenu() {
     createManager();
   
   }
+
+  appMenu();
