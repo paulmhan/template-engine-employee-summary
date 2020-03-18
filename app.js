@@ -5,34 +5,9 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 
+const outputPath = path.resolve(__dirname, "output", "team.html");
 
-const managerQuestions = [
-    {
-      type: "input",
-      message: "What is the manager's name?",
-      name: "managerName"
-    },
-    {
-        type: "input",
-        message: "What is the manager's Id number?",
-        name: "managerId"
-    },
-    {
-        type: "input",
-        message: "What is the manager's email address?",
-        name: "managerEmail"
-    },
-    {
-        type: "input",
-        message: "What is the manager's office number?",
-        name: "managerOffice"
-    }
-  ];
+const render = require("./lib/htmlRenderer");
 
-function inputManager(){
-    inquirer.prompt(managerQuestions)
-    .then(answers => {
-        const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOffice)
-    })
-
-}
+const teamMembers = [];
+const idArray = [];
